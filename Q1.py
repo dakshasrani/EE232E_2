@@ -7,6 +7,7 @@ Created on Thu Jun 04 16:36:50 2015
 """
 import fileinput
 from sets import Set
+import pickle
 
 #%%
 #Question 1
@@ -70,4 +71,8 @@ for l in listoflists:
                     cllistoflists.append(clalist)
            
            
-           
+with open('dump.pickle', 'wb') as savefile:
+  pickle.dump(cllistoflists, savefile)
+
+with open('edgelist.txt','w') as f:
+  f.write(repr(cllistoflists))
